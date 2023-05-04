@@ -4,41 +4,6 @@ from PIL import Image
 from yolov5 import YOLOv5
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
-"""
-def detect_parking_violation(image_path, parking_zones, conf_thres=0.25, iou_thres=0.45):
-    # Load YOLOv5 model
-    model = YOLOv5("yolov5s.pt", device=device)
-
-    # Load image
-    img = Image.open(image_path).convert('RGB')
-
-    # Run model
-    results = model.predict(img, size=640)
-
-    # Filter detections based on confidence threshold
-    filtered_detections = results.xyxy[0][results.xyxy[0][:, 4] >= conf_thres]
-
-    # Process detections
-    violations = []
-    for det in filtered_detections:
-        x1, y1, x2, y2, conf, cls = det
-        x1, y1, x2, y2 = int(x1), int(y1), int(x2), int(y2)
-        if check_parking_violation_zones(x1, y1, x2, y2, parking_zones):
-            violations.append((x1, y1, x2, y2))
-
-    return violations
-
-
-def draw_violations(image_path, violations):
-    image = cv2.imread(image_path)
-    for (x1, y1, x2, y2) in violations:
-        cv2.rectangle(image, (x1, y1), (x2, y2), (0, 0, 255), 2)
-        cv2.putText(image, "Violation", (x1, y1 - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
-
-    cv2.imshow("Parking Violations", image)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
-"""
 
 def detect_parking_violation(image_path, parking_zones, conf_thres=0.25):
     # Load YOLOv5 model
@@ -121,6 +86,7 @@ def main():
     violations, non_violations = detect_parking_violation(image_path, parking_zones, conf_thres=0.05)
     # Draw violations on the image and display it    
     draw_violations(image_path, violations, non_violations, parking_zones)
+
 
 
 if __name__ == "__main__":

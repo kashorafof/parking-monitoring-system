@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_app/models/constants.dart';
 import 'package:mobile_app/views/login_view.dart';
+import 'package:mobile_app/views/file_violation_view.dart';
 
 class MyApp extends StatelessWidget {
   @override

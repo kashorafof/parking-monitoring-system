@@ -5,8 +5,9 @@ import 'package:mobile_app/models/constants.dart';
 class ViolationRecordsPage extends StatelessWidget {
   final List<ViolationRecord> violationRecords;
   final bool able_to_object;
+  final String ID;
 
-  ViolationRecordsPage({required this.violationRecords, required this.able_to_object});
+  ViolationRecordsPage({required this.violationRecords, required this.able_to_object, required this.ID});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class ViolationRecordsPage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.all(16.0),
             child: Text(
-              'List of Violation Records:',
+              'List of Violation Records for : ' + ID,
               style: TextStyle(
                 fontSize: 18.0,
                 fontWeight: FontWeight.bold,

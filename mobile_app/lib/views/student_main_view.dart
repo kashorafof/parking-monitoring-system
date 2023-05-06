@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_app/views/objections_view.dart';
 import 'package:mobile_app/models/constants.dart';
-import 'package:mobile_app/models/Student.dart';
+import 'package:mobile_app/models/Account.dart';
 import 'package:mobile_app/views/violation_records_view.dart';
 import 'package:mobile_app/views/file_violation_view.dart';
+import 'package:mobile_app/viewmodels/main_page_viewmodel.dart';
 
 
 
@@ -13,7 +14,7 @@ int Total_fines = 50, Total_Black_Points = 10;
 Image profile_image = Image.asset('assets/user_image.jpg');
 
 class StudentPage extends StatelessWidget {
-  final Student student;
+  final Account student;
   StudentPage({required this.student});
    
   double buttonFontSize = 20.0; // The default button font size
@@ -30,7 +31,7 @@ class StudentPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Student Page'),
+        title: Text('Account Page'),
         // remove the return arrow 
         automaticallyImplyLeading: false,
       ),
@@ -91,12 +92,7 @@ class StudentPage extends StatelessWidget {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.buttonsColor,
                       ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => ViolationRecordsPage(violationRecords: violationList, able_to_object: true)),
-                        );
-                      },
+                      onPressed: () { openViolationRecords(context, ID, true);},
                       child: Text('Violation Records', style: TextStyle(fontSize: buttonFontSize)),
                     ),
                   ),
@@ -108,12 +104,7 @@ class StudentPage extends StatelessWidget {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.buttonsColor,
                       ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => ObjectionsStatusPage(objections: objectionsList)),
-                        );
-                      },
+                      onPressed: () {openObjectionStatus(context, ID);},
                       child: Text('Objections status', style: TextStyle(fontSize: buttonFontSize)),
                     ),
                   ),
@@ -125,10 +116,12 @@ class StudentPage extends StatelessWidget {
                         backgroundColor: AppColors.buttonsColor,
                       ),
                       onPressed: () {
+                        /*
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => ImageUploadPage()),
                         );
+                        */
                       },
                       child: Text('Registered vehicle', style: TextStyle(fontSize: buttonFontSize)),
                     ),
@@ -140,11 +133,8 @@ class StudentPage extends StatelessWidget {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.buttonsColor,
                       ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => ViolationRecordsPage(violationRecords: violationList, able_to_object: true)),
-                        );
+                      onPressed: () { 
+                        // 
                       },
                       child: Text('Payment', style: TextStyle(fontSize: buttonFontSize)),
                     ),

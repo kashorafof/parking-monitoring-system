@@ -43,6 +43,7 @@ class Objection{
   String objecitonTime;
   objectionStatus currentStatus;
   String objectionDescription;
+  String userID;
 
 
   Objection({
@@ -51,6 +52,7 @@ class Objection{
     required this.objecitonTime,
     required this.currentStatus,
     required this.objectionDescription,
+    required this.userID,
   });
 }
 
@@ -137,6 +139,7 @@ List<Objection> objectionsList = [
     objecitonTime: "2023-05-03 10:00 AM",
     currentStatus: objectionStatus.pending,
     objectionDescription: "Description 1",
+    userID: "U1",
   ),
   Objection(
     violationID: "V456",
@@ -144,6 +147,7 @@ List<Objection> objectionsList = [
     objecitonTime: "2023-05-03 11:30 AM",
     currentStatus: objectionStatus.accepted,
     objectionDescription: "This is the second objection.",
+    userID: "U2",
   ),
   Objection(
     violationID: "V789",
@@ -151,6 +155,7 @@ List<Objection> objectionsList = [
     objecitonTime: "2023-05-03 2:15 PM",
     currentStatus: objectionStatus.rejected,
     objectionDescription: "This is the third objection.",
+    userID: "U1",
   ),
   Objection(
     violationID: "V123",
@@ -158,6 +163,7 @@ List<Objection> objectionsList = [
     objecitonTime: "2023-05-03 3:45 PM",
     currentStatus: objectionStatus.pending,
     objectionDescription: "This is the fourth objection.",
+    userID: "U2",
   ),
   Objection(
     violationID: "V456",
@@ -165,6 +171,7 @@ List<Objection> objectionsList = [
     objecitonTime: "2023-05-03 4:30 PM",
     currentStatus: objectionStatus.accepted,
     objectionDescription: "This is the fifth objection.",
+    userID: "U1",
   ),
 ];
 
